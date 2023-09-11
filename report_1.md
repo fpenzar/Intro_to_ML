@@ -70,3 +70,25 @@ Attributes with a high percentage of null values across the dataset were exclude
 
 ## Detailed Explanation of the Data Attributes
 
+A basic description of the relevant attributes is shown in the following table:
+
+| Attribute  |   | Attribute type   |
+|:---|:---:|:---:|
+| GDP  |continuous|ratio|
+| Life Expectancy  |continuous|ratio|
+| Continent |discrete|nominal|
+| Physicians per thousand people  |continuous|ratio|
+| Gross Primary Education Enrollment  |continuous|ratio|
+| Gross Tertiary Education Enrollment  |continuous|ratio|
+| Infant Mortality  |continuous|ratio|
+| CPI  |continuous|ratio|
+| Agricultural Land  |continuous|ratio|
+| Density  |continuous|interval|
+| Birth rate  |continuous|ratio|
+| Gasoline price  |continuous|ratio|
+| Maternal mortality ratio  |continuous|ratio|
+| Unemployment rate  |continuous|ratio|
+| Urban population  |continuous|ratio|
+| Population  |continuous|ratio|
+| Physicians per thousand people  |continuous|ratio|
+
