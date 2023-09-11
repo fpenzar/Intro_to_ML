@@ -8,7 +8,7 @@ Group 127
 ## Description of the Dataset
 
 This dataset contains a wide range of information about countries worldwide.
-It covers every country globally and its attributes serve as basic categories describing each country. Categories include demographic statistics, healthcare metrics, economic indicators, education statistics, environmental data, and other. The global-wide inclusion of all countries allows for a wide perspective which can be used for in-depth analyses and cross-country comparisons.
+It covers every country globally and its attributes serve as basic categories describing each country. Categories include demographic statistics, healthcare metrics, economic indicators, education statistics, environmental data, and others. The global-wide inclusion of all countries allows for a wide perspective that can be used for in-depth analyses and cross-country comparisons.
 
 The dataset can be obtained at [kaggle](https://www.kaggle.com/datasets/nelgiriyewithana/countries-of-the-world-2023).
 
@@ -23,7 +23,7 @@ This project focuses on the manipulation and examination of the data in order to
 
 #### Classification
 
-For the classification problem, the goal will be to create a model that can predict the continent a country is on (`Continent` variable), based on a number of other variables. The variables will include:
+For the classification problem, the goal will be to create a model that can predict the continent a country is on (`Continent` variable), based on several other variables. The variables will include:
 * GDP
 * Life Expectancy
 * Physicians per thousand people
@@ -44,7 +44,7 @@ For the classification problem, the goal will be to create a model that can pred
 
 #### Regression
 
-For the regression problem, the goal will be to predict the value `Gross Tertiary Education Enrollment`. Variables used for the prediction will enclude:
+For the regression problem, the goal will be to predict the value of `Gross Tertiary Education Enrollment`. Variables used for the prediction will include:
 * GDP
 * Life Expectancy
 * Continent
@@ -65,8 +65,8 @@ For the regression problem, the goal will be to predict the value `Gross Tertiar
 
 #### Data Transformation
 
-Since the original dataset does not come with the attribute that descrbes the continent a country is on, the attribute needed to be added. This was done with a [python library](https://pypi.org/project/pycountry-convert/).
-Attribute with high percentage of null values across the dataset were excluded so as not to introduce bias in the models. 
+Since the original dataset does not come with the attribute that describes the continent a country is on, the attribute needed to be added. This was done with a [python library](https://pypi.org/project/pycountry-convert/).
+Attributes with a high percentage of null values across the dataset were excluded so as not to introduce bias in the models. 
 
 ## Detailed Explanation of the Data Attributes
 
