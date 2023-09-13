@@ -79,10 +79,13 @@ A basic description of the relevant attributes is shown in the following table:
 
 | Attribute | Details |   | Attribute type   |
 |:---| :---:|:---:|:---:|
+| Abbreviation | Abbreviation or code representing the country |discrete|nominal|
 | Agricultural Land | Percentage of land area used for agricultural purposes (%) |continuous|ratio|
 | Birth rate|  Number of births per 1,000 population per year |continuous|ratio|
 | Continent| Continent name of country |discrete|nominal|
 | CPI | Consumer Price Index, a measure of inflation and purchasing power |continuous|ratio|
+|Fertility Rate | Average number of children born to a woman during her lifetime | continuous | ration|
+|Forested Area |Percentage of land area covered by forests (%) | continuous | ratio |
 | Density| Population density measured in persons per square kilometer (P/Km2) |continuous|ratio|
 | GDP | Gross Domestic Product, the total value of goods and services produced in the country |continuous|ratio|
 | Gasoline price| Price of gasoline per liter in local currency  |continuous|ratio|
