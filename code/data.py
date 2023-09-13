@@ -15,7 +15,7 @@ def get_continent(country_name):
         return "Country not found"
 
 # Load the dataset using the Pandas library
-filename = '../data/dataset.csv'
+filename = './data/dataset.csv'
 df = pd.read_csv(filename)
 
 # Pandas returns a dataframe, (df) which could be used for handling the data.
@@ -73,6 +73,18 @@ X = np.hstack((X, continents))
 
 # Update attributeNames
 attribute_names = np.append(attribute_names, "Continent")
+
+# convert the attributes to numerical values
+def convert_to_numerical(value):
+    if isinstance(value, str):
+        value = value.replace('%', '').replace('$', '')
+        try:
+            return float(value)
+        except ValueError:
+            return value
+    else:
+        return value
+X = np.vectorize(convert_to_numerical)(X)
 
 # Because some countries do not have a country code 
 # or because the country code in the dataset and in the pycountry_convert module are not equal
