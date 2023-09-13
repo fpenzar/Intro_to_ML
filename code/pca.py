@@ -2,7 +2,9 @@ from transform import *
 import matplotlib.pyplot as plt
 from scipy.linalg import svd
 
-X = X[:, 1:].astype(float)
+cols_to_discard = 0
+
+X = X[:, 1:N-cols_to_discard].astype(float)
 
 # subtract the mean and standardize the data
 Y = X - np.ones((N, 1))*X.mean(0)
@@ -51,25 +53,19 @@ plt.title('Variance explained')
 plt.show()
 
 # percent of the variance. Let's look at their coefficients:
-pcs = [i for i in range(10)]
+pcs = [i for i in range(8)]
 legendStrs = ['PC'+str(e+1) for e in pcs]
-bw = .2
-r = np.arange(2,M+1)
+bw = .1
+r = np.arange(2,M - cols_to_discard + 1)
 
 fig, ax = plt.subplots()
 for i in pcs:
-    ax.bar(r+i*bw, V[:,i], width=bw)
+    ax.bar(r+i*bw - 4*bw, V[:,i], width=bw)
 ax.set_xticks(r+bw) 
-ax.set_xticklabels(attribute_names[1:],rotation=270)
+ax.set_xticklabels(attribute_names[1:N-cols_to_discard],rotation=270)
 ax.set_xlabel('Attributes')
 ax.set_ylabel('Component coefficients')
 ax.legend(legendStrs, loc='upper left', bbox_to_anchor=(1, 1))
 ax.grid()
 plt.title('PCA Component Coefficients')
-# plt.xticks(r+bw, attribute_names[1:],rotation=270)
-# plt.xlabel('Attributes')
-# plt.ylabel('Component coefficients')
-# plt.legend(legendStrs)
-# plt.grid()
-# plt.title('PCA Component Coefficients')
 plt.show()

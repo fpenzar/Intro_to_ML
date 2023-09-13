@@ -80,13 +80,13 @@ class_names = { "Africa":0, "Asia":1, "Europe":2, "North America":3, "Oceania":4
 C = len(class_names)
 y = np.array([class_names[continent] for continent in continents])
 
-for i in range(0, len(continents)):
-    index_offset = class_names.get(continents[i])
-    one_hot_encoding[i][index_offset] = 1
-X = np.hstack((X, one_hot_encoding))
+# for i in range(0, len(continents)):
+#     index_offset = class_names.get(continents[i])
+#     one_hot_encoding[i][index_offset] = 1
+# X = np.hstack((X, one_hot_encoding))
 
-# Update attribute_names
-attribute_names = np.append(attribute_names, list(class_names.keys()))
+# # Update attribute_names
+# attribute_names = np.append(attribute_names, list(class_names.keys()))
 
 # convert the attributes to numerical values
 def convert_to_numerical(value):
