@@ -15,7 +15,7 @@ def get_continent(country_name):
         return "Country not found"
 
 # Load the dataset using the Pandas library
-filename = '../data/dataset.csv'
+filename = './data/dataset.csv'
 df = pd.read_csv(filename)
 
 # Pandas returns a dataframe, (df) which could be used for handling the data.
@@ -58,7 +58,7 @@ indices_with_multiple_nans = np.where(np.array(nan_percentages) > p)[0]
 
 # get the country names of the deleted countries
 deleted_countries = filtered_data[indices_with_multiple_nans, country_index][0]
-print(deleted_countries)
+print((deleted_countries))
 
 # Remove the countries with too many null attributes
 X = np.delete(filtered_data, indices_with_multiple_nans, axis=0)
@@ -86,6 +86,7 @@ def convert_to_numerical(value):
         return value
 
 X = np.vectorize(convert_to_numerical)(X)
+print(attribute_names)
 
 # Because some countries do not have a country code 
 # or because the country code in the dataset and in the pycountry_convert module are not equal
@@ -98,3 +99,4 @@ X[142][18] = "Asia"
 # We can determine the number of data objects and number of attributes using 
 # the shape of X
 N, M = X.shape
+print(N)

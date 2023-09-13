@@ -1,7 +1,6 @@
 # REPORT 1
 
-Eva Kaštelan (232469)\
-Noa Margeta (232470), Filip Penzar (232452)\
+Eva Kaštelan (232469), Noa Margeta (232470), Filip Penzar (232452)\
 Group 127
 
 ---
@@ -68,19 +67,13 @@ For the regression problem, the goal will be to predict the value of `Gross Tert
 * Population
 * Physicians per thousand people
 
-
-#### Data Transformation
-
-Since the original dataset does not come with the attribute that describes the continent a country is on, the attribute needed to be added. This was done with a [python library](https://pypi.org/project/pycountry-convert/).
-Attributes with a high percentage of null values across the dataset were excluded so as not to introduce bias in the models. 
-
 ## Detailed Explanation of the Data Attributes
 
 A basic description of the relevant attributes is shown in the following table:
 
 | Attribute | Details |   | Attribute type   |
 |:---|:---|:---:|:---:|
-| Abbreviation | Abbreviation or code representing the country |discrete|nominal|
+| Country | Country name |discrete|nominal|
 | Agricultural Land | Percentage of land area used for agricultural purposes (%) |continuous|ratio|
 | Birth rate|  Number of births per 1,000 population per year |continuous|ratio|
 | Continent| Continent name of country |discrete|nominal|
@@ -99,4 +92,11 @@ A basic description of the relevant attributes is shown in the following table:
 | Population | Total population of the country |continuous|ratio|
 | Unemployment rate| Percentage of the labor force that is unemployed |continuous|ratio|
 | Urban population | Percentage of the population living in urban areas |continuous|ratio|
+
+
+#### Data Transformation
+
+There was a number of data transformations performed. Some of the variables were removed all together, mostly due to a large number of null values within the dataset (e.g. `Minimum wage`, 23% null values - Denmark does not have a statutory minimum wage). Extrapolating the missing values would introduce unnecessary bias to the dataset. Some were removed because they were irrelevant to the project goals (`Calling code`, `Currency code`, `Largest city`, `Official language`). `Latitude` and `Longitude` were removed due to their close connection with the continent attribute - based on these attributes alone it would be possible to predict the continent.\
+Since the original dataset did not come with the attribute that described the continent a country is on, the attribute needed to be added. This was done with a [python library](https://pypi.org/project/pycountry-convert/). After the addition, one-hot encoding was used for the continents, thus introducing 6 (Antarctica was not added) new attributes per country.\
+Countries that contained null values within the remaining attributes were removed (36 countries). Again, this was done so as not to introduce any bias. In the end the cleaned dataset contained 159 countries.
 
