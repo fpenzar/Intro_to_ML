@@ -63,15 +63,6 @@ For the regression problem, the goal will be to predict the value of `Gross Tert
 * Unemployment rate
 * Urban population
 * Population
-* Physicians per thousand people### Project Goals
-
-* Birth rate
-* Forested area
-* Gasoline price
-* Maternal mortality ratio
-* Unemployment rate
-* Urban population
-* Population
 * Physicians per thousand people
 
 
