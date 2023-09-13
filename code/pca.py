@@ -1,6 +1,7 @@
 from transform import *
 import matplotlib.pyplot as plt
 from scipy.linalg import svd
+from mpl_toolkits.mplot3d import Axes3D
 
 cols_to_discard = 0
 
@@ -27,7 +28,6 @@ j = 1
 # Plot PCA of the data
 f = plt.figure()
 plt.title('PCA')
-#Z = array(Z)
 for c in range(C):
     # select indices belonging to class c:
     class_mask = y==c
@@ -68,4 +68,28 @@ ax.set_ylabel('Component coefficients')
 ax.legend(legendStrs, loc='upper left', bbox_to_anchor=(1, 1))
 ax.grid()
 plt.title('PCA Component Coefficients')
+plt.show()
+
+
+# Create a figure and a 3D axis
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# Create a 3D scatter plot
+for c in range(C):
+    # select indices belonging to class c:
+    class_mask = y==c
+    ax.scatter(Z[class_mask,0], Z[class_mask,1], Z[class_mask,2], marker='o', alpha=.5)
+
+# Set labels for the axes
+ax.set_xlabel('PC 1')
+ax.set_ylabel('PC 2')
+ax.set_zlabel('PC 3')
+ax.legend(class_names, loc='upper left', bbox_to_anchor=(-0.2, 1))
+
+
+# Set the title
+ax.set_title('Projection of data on first 3 PCs')
+
+# Show the plot
 plt.show()
