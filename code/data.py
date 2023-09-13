@@ -94,7 +94,9 @@ X[9][18] = "North America"
 X[51][18] = "Africa"
 X[67][18] = "Europe"
 X[142][18] = "Asia"
-
+attribute_names[1] = "Density (P/Km2)"
+attribute_names[9] = "Gross primary education(%)"
+attribute_names[10] = "Gross tertiary education(%)"
 # We can determine the number of data objects and number of attributes using 
 # the shape of X
 N, M = X.shape
