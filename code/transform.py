@@ -101,4 +101,3 @@ attribute_names[10] = "Gross tertiary education(%)"
 # We can determine the number of data objects and number of attributes using 
 # the shape of X
 N, M = X.shape
-print(N)
