@@ -58,21 +58,32 @@ indices_with_multiple_nans = np.where(np.array(nan_percentages) > p)[0]
 
 # get the country names of the deleted countries
 deleted_countries = filtered_data[indices_with_multiple_nans, country_index][0]
-print((deleted_countries))
 
 # Remove the countries with too many null attributes
 X = np.delete(filtered_data, indices_with_multiple_nans, axis=0)
 
 # Adding continents as a new attribute
-
 continents = np.array([get_continent(country_name) for country_name in X[:,0]])
-continents = continents.reshape(-1, 1)
 
-# Add the values(continents) as a new column to the original matrix
-X = np.hstack((X, continents))
+# Because some countries do not have a country code 
+# or because the country code in the dataset and in the pycountry_convert module are not equal
+# we will add them by hand
+continents[9] = "North America"
+continents[51] = "Africa"
+continents[67] = "Europe"
+continents[142] = "Asia"
 
-# Update attributeNames
-attribute_names = np.append(attribute_names, "Continent")
+# one-hot encoding of continents (Africa, Asia, Europe, North America, Oceania, South America) 
+N, M = X.shape
+one_hot_encoding = np.zeros((N, 6), dtype=int)
+continents_one_hot = { "Africa":0, "Asia":1, "Europe":2, "North America":3, "Oceania":4, "South America":5 }
+for i in range(0, len(continents)):
+    index_offset = continents_one_hot.get(continents[i])
+    one_hot_encoding[i][index_offset] = 1
+X = np.hstack((X, one_hot_encoding))
+
+# Update attribute_names
+attribute_names = np.append(attribute_names, list(continents_one_hot.keys()))
 
 # convert the attributes to numerical values
 def convert_to_numerical(value):
@@ -86,19 +97,12 @@ def convert_to_numerical(value):
         return value
 
 X = np.vectorize(convert_to_numerical)(X)
-print(attribute_names)
 
-# Because some countries do not have a country code 
-# or because the country code in the dataset and in the pycountry_convert module are not equal
-# we will add them by hand
-X[9][18] = "North America"
-X[51][18] = "Africa"
-X[67][18] = "Europe"
-X[142][18] = "Asia"
+# Because some attribute names are too long we are making them shorter
 attribute_names[1] = "Density (P/Km2)"
 attribute_names[9] = "Gross primary education(%)"
 attribute_names[10] = "Gross tertiary education(%)"
+
 # We can determine the number of data objects and number of attributes using 
 # the shape of X
 N, M = X.shape
-print(N)
