@@ -78,7 +78,7 @@ Attributes with a high percentage of null values across the dataset were exclude
 A basic description of the relevant attributes is shown in the following table:
 
 | Attribute | Details |   | Attribute type   |
-|:---| :---:|:---:|:---:|
+|:---|:---|:---:|:---:|
 | Abbreviation | Abbreviation or code representing the country |discrete|nominal|
 | Agricultural Land | Percentage of land area used for agricultural purposes (%) |continuous|ratio|
 | Birth rate|  Number of births per 1,000 population per year |continuous|ratio|
