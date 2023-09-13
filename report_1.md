@@ -122,3 +122,4 @@ Countries that contained null values within the remaining attributes were remove
 |Unemployment rate| 6.889 |5.015 |5.390 |28.090 |
 |Urban_population| 26180340.145 |81911516.515 |5648149.000 |842899682.000 |
 
+![image](images/correlation_matrix.png)
