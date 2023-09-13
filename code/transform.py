@@ -76,14 +76,17 @@ continents[142] = "Asia"
 # one-hot encoding of continents (Africa, Asia, Europe, North America, Oceania, South America) 
 N, M = X.shape
 one_hot_encoding = np.zeros((N, 6), dtype=int)
-continents_one_hot = { "Africa":0, "Asia":1, "Europe":2, "North America":3, "Oceania":4, "South America":5 }
-for i in range(0, len(continents)):
-    index_offset = continents_one_hot.get(continents[i])
-    one_hot_encoding[i][index_offset] = 1
-X = np.hstack((X, one_hot_encoding))
+class_names = { "Africa":0, "Asia":1, "Europe":2, "North America":3, "Oceania":4, "South America":5 }
+C = len(class_names)
+y = np.array([class_names[continent] for continent in continents])
 
-# Update attribute_names
-attribute_names = np.append(attribute_names, list(continents_one_hot.keys()))
+# for i in range(0, len(continents)):
+#     index_offset = class_names.get(continents[i])
+#     one_hot_encoding[i][index_offset] = 1
+# X = np.hstack((X, one_hot_encoding))
+
+# # Update attribute_names
+# attribute_names = np.append(attribute_names, list(class_names.keys()))
 
 # convert the attributes to numerical values
 def convert_to_numerical(value):

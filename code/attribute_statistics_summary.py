@@ -7,7 +7,7 @@ Created on Wed Sep 13 13:10:48 2023
 
 import numpy as np
 import pandas as pd
-from data import *
+from transform import *
 import matplotlib.pyplot as plt
 
 """filename = '../Data/iris.csv'
