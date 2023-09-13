@@ -5,8 +5,9 @@ import numpy as np
 import pandas as pd
 import pycountry_convert as pc
 
-def get_continent(country_code):
+def get_continent(country_name):
     try:
+        country_code = pc.country_name_to_country_alpha2(country_name)
         continent_code = pc.country_alpha2_to_continent_code(country_code)
         continent_name = pc.convert_continent_code_to_continent_name(continent_code)
         return continent_name
@@ -60,38 +61,27 @@ deleted_countries = filtered_data[indices_with_multiple_nans, country_index][0]
 print(deleted_countries)
 
 # Remove the countries with too many null attributes
-
-
-
-# We can determine the number of data objects and number of attributes using 
-# the shape of X
-N, M = X.shape
-
-# DATA cleanup
-
-# We will remove row 133, "Palestinian National Authority",
-# because all of the relevant attributes are NaN
-
-X = np.delete(X, 133, axis=0)
+X = np.delete(filtered_data, indices_with_multiple_nans, axis=0)
 
 # Adding continents as a new attribute
 
-continents = np.array([get_continent(country_code) for country_code in X[:,2]])
+continents = np.array([get_continent(country_name) for country_name in X[:,0]])
 continents = continents.reshape(-1, 1)
 
 # Add the values(continents) as a new column to the original matrix
 X = np.hstack((X, continents))
 
 # Update attributeNames
-attributeNames = np.append(attributeNames, "Continent")
+attribute_names = np.append(attribute_names, "Continent")
 
 # Because some countries do not have a country code 
 # or because the country code in the dataset and in the pycountry_convert module are not equal
 # we will add them by hand
-X[39,35] = "Africa"
-X[56,35] = "Africa"
-X[73,35] = "Europe"
-X[81,35] = "Europe"
-X[119,35] = "Africa"
-X[128,35] = "Europe"
-X[173,35] = "Asia"
+X[9][18] = "North America"
+X[51][18] = "Africa"
+X[67][18] = "Europe"
+X[142][18] = "Asia"
+
+# We can determine the number of data objects and number of attributes using 
+# the shape of X
+N, M = X.shape
