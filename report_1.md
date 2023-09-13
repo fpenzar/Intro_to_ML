@@ -100,3 +100,25 @@ There was a number of data transformations performed. Some of the variables were
 Since the original dataset did not come with the attribute that described the continent a country is on, the attribute needed to be added. This was done with a [python library](https://pypi.org/project/pycountry-convert/). After the addition, one-hot encoding was used for the continents, thus introducing 6 (Antarctica was not added) new attributes per country.\
 Countries that contained null values within the remaining attributes were removed (36 countries). Again, this was done so as not to introduce any bias. In the end the cleaned dataset contained 159 countries.
 
+#### Basic summary statistics of the attributes
+
+|Attribute | empirical mean | std deviation | median | range |
+|:--- | :---: | :---: | :---: | :---: |
+|Density (P/Km2)| 214.333 |709.831 |83.000 |8356.000 |
+|Agricultural Land( %)| 39.029 |21.869 |39.500 |82.000 |
+|Birth Rate| 20.143 |9.911 |17.950 |39.680 |
+|CPI| 170.921 |232.890 |128.850 |2641.240 |
+|Fertility Rate| 2.664 |1.279 |2.220 |5.930 |
+|Forested Area (%)| 30.026 |22.806 |31.100 |98.300 |
+|Gasoline Price| 0.989 |0.346 |0.980 |1.810 |
+|GDP| 576652125538.623 |2382682486202.203 |53742159517.000 |21426849344983.000 |
+|Gross primary education(%)| 103.360 |11.348 |102.500 |67.800 |
+|Gross tertiary education(%)| 39.473 |29.112 |34.600 |135.800 |
+|Infant mortality| 20.788 |19.406 |13.600 |83.100 |
+|Life expectancy| 72.624 |7.516 |74.300 |31.400 |
+|Maternal mortality ratio| 153.138 |222.200 |46.000 |1138.000 |
+|Physicians per thousand| 1.826 |1.580 |1.570 |7.110 |
+|Population| 47152268.333 |159265753.035 |10669709.000 |1397532210.000 |
+|Unemployment rate| 6.889 |5.015 |5.390 |28.090 |
+|Urban_population| 26180340.145 |81911516.515 |5648149.000 |842899682.000 |
+
