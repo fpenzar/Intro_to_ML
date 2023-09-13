@@ -1,8 +1,11 @@
 from transform import *
 import matplotlib.pyplot as plt
 from scipy.linalg import svd
+from mpl_toolkits.mplot3d import Axes3D
 
-X = X[:, 1:].astype(float)
+cols_to_discard = 0
+
+X = X[:, 1:N-cols_to_discard].astype(float)
 
 # subtract the mean and standardize the data
 Y = X - np.ones((N, 1))*X.mean(0)
@@ -25,7 +28,6 @@ j = 1
 # Plot PCA of the data
 f = plt.figure()
 plt.title('PCA')
-#Z = array(Z)
 for c in range(C):
     # select indices belonging to class c:
     class_mask = y==c
@@ -51,25 +53,43 @@ plt.title('Variance explained')
 plt.show()
 
 # percent of the variance. Let's look at their coefficients:
-pcs = [i for i in range(10)]
+pcs = [i for i in range(8)]
 legendStrs = ['PC'+str(e+1) for e in pcs]
-bw = .2
-r = np.arange(2,M+1)
+bw = .1
+r = np.arange(2,M - cols_to_discard + 1)
 
 fig, ax = plt.subplots()
 for i in pcs:
-    ax.bar(r+i*bw, V[:,i], width=bw)
+    ax.bar(r+i*bw - 4*bw, V[:,i], width=bw)
 ax.set_xticks(r+bw) 
-ax.set_xticklabels(attribute_names[1:],rotation=270)
+ax.set_xticklabels(attribute_names[1:N-cols_to_discard],rotation=270)
 ax.set_xlabel('Attributes')
 ax.set_ylabel('Component coefficients')
 ax.legend(legendStrs, loc='upper left', bbox_to_anchor=(1, 1))
 ax.grid()
 plt.title('PCA Component Coefficients')
-# plt.xticks(r+bw, attribute_names[1:],rotation=270)
-# plt.xlabel('Attributes')
-# plt.ylabel('Component coefficients')
-# plt.legend(legendStrs)
-# plt.grid()
-# plt.title('PCA Component Coefficients')
+plt.show()
+
+
+# Create a figure and a 3D axis
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+
+# Create a 3D scatter plot
+for c in range(C):
+    # select indices belonging to class c:
+    class_mask = y==c
+    ax.scatter(Z[class_mask,0], Z[class_mask,1], Z[class_mask,2], marker='o', alpha=.5)
+
+# Set labels for the axes
+ax.set_xlabel('PC 1')
+ax.set_ylabel('PC 2')
+ax.set_zlabel('PC 3')
+ax.legend(class_names, loc='upper left', bbox_to_anchor=(-0.2, 1))
+
+
+# Set the title
+ax.set_title('Projection of data on first 3 PCs')
+
+# Show the plot
 plt.show()
