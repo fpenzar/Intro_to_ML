@@ -77,23 +77,22 @@ Attributes with a high percentage of null values across the dataset were exclude
 
 A basic description of the relevant attributes is shown in the following table:
 
-| Attribute  |   | Attribute type   |
-|:---|:---:|:---:|
-| GDP  |continuous|ratio|
-| Life Expectancy  |continuous|ratio|
-| Continent |discrete|nominal|
-| Physicians per thousand people  |continuous|ratio|
-| Gross Primary Education Enrollment  |continuous|ratio|
-| Gross Tertiary Education Enrollment  |continuous|ratio|
-| Infant Mortality  |continuous|ratio|
-| CPI  |continuous|ratio|
-| Agricultural Land  |continuous|ratio|
-| Density  |continuous|interval|
-| Birth rate  |continuous|ratio|
-| Gasoline price  |continuous|ratio|
-| Maternal mortality ratio  |continuous|ratio|
-| Unemployment rate  |continuous|ratio|
-| Urban population  |continuous|ratio|
-| Population  |continuous|ratio|
-| Physicians per thousand people  |continuous|ratio|
+| Attribute | Details |   | Attribute type   |
+|:---| :---:|:---:|:---:|
+| Agricultural Land | Percentage of land area used for agricultural purposes (%) |continuous|ratio|
+| Birth rate|  Number of births per 1,000 population per year |continuous|ratio|
+| Continent| Continent name of country |discrete|nominal|
+| CPI | Consumer Price Index, a measure of inflation and purchasing power |continuous|ratio|
+| Density| Population density measured in persons per square kilometer (P/Km2) |continuous|ratio|
+| GDP | Gross Domestic Product, the total value of goods and services produced in the country |continuous|ratio|
+| Gasoline price| Price of gasoline per liter in local currency  |continuous|ratio|
+| Gross Primary Education Enrollment |Gross enrollment ratio for primary education (%) |continuous|ratio|
+| Gross Tertiary Education Enrollment| Gross enrollment ratio for tertiary education (%) |continuous|ratio|
+| Infant Mortality| Number of deaths per 1,000 live births before reaching one year of age |continuous|ratio|
+| Life Expectancy |Average number of years a newborn is expected to live.  |continuous|ratio|
+| Maternal mortality ratio | Number of maternal deaths per 100,000 live births |continuous|ratio|
+| Physicians per thousand people| Number of physicians per thousand people  |continuous|ratio|
+| Population | Total population of the country |continuous|ratio|
+| Unemployment rate| Percentage of the labor force that is unemployed |continuous|ratio|
+| Urban population | Percentage of the population living in urban areas |continuous|ratio|
 
