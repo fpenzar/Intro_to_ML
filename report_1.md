@@ -25,6 +25,7 @@ This project focuses on the manipulation, examination, description, and visualiz
 Classification models are used to categorize data into predefined classes or categories.
 For the classification problem, the goal will be to create such a model that can predict the continent a country is on (`Continent` the chosen class label attribute), based on several other features. 
 The attributes will include:
+
 * GDP
 * Life Expectancy
 * Physicians per thousand people
@@ -47,6 +48,7 @@ The attributes will include:
 
 Regression models are used to predict a continuous numeric value based on input features. 
 For the regression problem, the goal will be to predict the value of `Gross Tertiary Education Enrollment`. Attributes used for the prediction will include:
+
 * GDP
 * Life Expectancy
 * Continent
