@@ -102,7 +102,7 @@ Countries that contained null values within the remaining attributes were remove
 
 #### Basic summary statistics of the attributes
 
-|Attribute | empirical mean | std deviation | median | range |
+|Attribute | empirical mean | empirical std deviation | median | range |
 |:--- | :---: | :---: | :---: | :---: |
 |Density (P/Km2)| 214.333 |709.831 |83.000 |8356.000 |
 |Agricultural Land( %)| 39.029 |21.869 |39.500 |82.000 |
