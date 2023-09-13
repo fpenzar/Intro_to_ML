@@ -38,7 +38,7 @@ for i in range (M):
     
         print("|"+ attribute_names[i]+ "| %.3f |%.3f |%.3f |%.3f |" % (mean_x, std_x, median_x, range_x))
     
-cov_matrix = np.cov(X[:,1:M-1].astype(float), rowvar=False)
+cov_matrix = np.cov(X[:,1:M-6].astype(float), rowvar=False)
 
 print("Covariance Matrix:")
 print(cov_matrix)
@@ -47,8 +47,8 @@ plt.figure()
 plt.imshow(cov_matrix, cmap='viridis', interpolation='nearest')
 plt.title('Covariance Matrix')
 plt.colorbar()
-plt.xticks(np.arange(len(cov_matrix)), attribute_names[1:M-1],rotation=270)
-plt.yticks(np.arange(len(cov_matrix)), attribute_names[1:M-1])
+plt.xticks(np.arange(len(cov_matrix)), attribute_names[1:M-6],rotation=270)
+plt.yticks(np.arange(len(cov_matrix)), attribute_names[1:M-6])
 """plt.xlabel('Variables')
 plt.ylabel('Variables')"""
 """for i in range(len(cov_matrix)):
@@ -61,7 +61,7 @@ plt.show()
 
     
     
-correlation_matrix = np.corrcoef(X[:,1:M-1].astype(float), rowvar=False)
+correlation_matrix = np.corrcoef(X[:,1:M-6].astype(float), rowvar=False)
 
 # Print the correlation matrix
 print("Correlation Matrix:")
@@ -71,8 +71,8 @@ plt.figure()
 plt.imshow(correlation_matrix, cmap='viridis', interpolation='nearest')
 plt.title('Correlation Matrix')
 plt.colorbar()
-plt.xticks(np.arange(len(correlation_matrix)), attribute_names[1:M-1],rotation=270)
-plt.yticks(np.arange(len(correlation_matrix)), attribute_names[1:M-1])
+plt.xticks(np.arange(len(correlation_matrix)), attribute_names[1:M-6],rotation=270)
+plt.yticks(np.arange(len(correlation_matrix)), attribute_names[1:M-6])
 """plt.xlabel('Variables')
 plt.ylabel('Variables')"""
 """for i in range(len(correlation_matrix)):
