@@ -1,6 +1,7 @@
 # REPORT 1
 
-Noa Margeta (232470), Eva Kaštelan (232469), Filip Penzar (232452)\
+Eva Kaštelan (232469)
+Noa Margeta (232470), Filip Penzar (232452)\
 Group 127
 
 ---
