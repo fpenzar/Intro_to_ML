@@ -144,13 +144,11 @@ Because of the great number of attributes in the dataset only a few interesting 
 
 ![histograms](./images/combined_histograms_picture.jpg)
 
-Two of the attributes, gasoline price and gross primary education have an approximately normal distribution. Fertility rate appears to be skewed to the right while life expectancy appears to be skewed to the left. Maybe the most interesting attribute is GDP, because of the large difference in values it appears almost as if it has an outlier, but in fact, all of the values are true.
+Two of the attributes, gasoline price and gross primary education have an approximately normal distribution. Fertility rate appears to be skewed to the right while life expectancy appears to be skewed to the left. Maybe the most interesting attribute is GDP, because of the large difference in values (the difference between the highest and lowest GDP is 21,426,849,344,983). It appears as if it has some evident outliers, but in fact, all of the values are true.
 
 ![box-plot](./images/box_plots_combined.png)
 
-The box-plot of GDP shows these "outliers" even better.
-(sad nesto valjda reci o primary education outlierim?)
-
+Coutries like the U.S., China, Japan, Germany, U.K., France, India, South Korea, Italy..., have extremly large values of GDP (many of them are members of G8) and subsequently look like outliers in the box-plot. They are not outliers, but rather valuable data points and because of this they are left in the dataset. 
 
 Again because of the great number of attributes, a few interesting correlations are featured in graphs 2., 3. and 4.
 They show the relations between strongly correlated chosen attributes. 
@@ -189,7 +187,8 @@ The following figure visualizes the directions of the PCs.\
 For **PC 1**, `Birth Rate`, `Fertility Rate`, `Infant Mortality` and `Maternal Mortality` have a high negative coefficient associated with them, meaning a large positive value of those variables will result in a negative PC 1 result. This could be interpreted as a strong discrimination between countries based on natality. `Life Expectancy` and `Physicians per thousand` have high positive coefficients, meaning a discrimination based on healthcare. `Gross Tertiary Education`, `GDP` and `Gasoline Price` also have realtively high positive coefficients which could be explained as discrimination based on wealth.\
 **PC 2** has high negative coefficients associated with `GDP`, `Population`, `Urban Population` and `Agricultural Land`. These attributes together discriminate based on the size of the country.\
 **PC 3** has high positive values for `Agricultural Land` and `Unemployment Rate`, and negative values for `Forested Area`, `Gasoline Price` and `Gross Primary Education`. PC 3 thus discriminates based on land usage and overall country development.\
-<br/>
+
+
 The first three principal components explain around 60% of the data variation.
 By plotting the data onto the first 2 PCs the following graph is obtained:\
 ![pca 1 2d](./images/pca/pca_1_2.png)\
@@ -199,3 +198,24 @@ By plotting data onto the second and third PC the following graph is obtained:\
 ![pca 2 3d](./images/pca/pca_2_3.png)\
 As can be seen from the data plotted onto first and second PC, and data plotted onto first and third PC, countries from the same continents are relatively localized. This means a classification model for determining the continent of the country should be feasible.\
 When plotting the data onto second and third PC the clear distinction between data points is hard to spot. An explanation of this is that combined, second and third PC only address around 23% of variation of the data.
+
+
+## Exam Problems
+
+### Question 1:
+Option D: x1, time of day is interval because the attribute can be measured as time, x2-x7 are ratio because they measure the number of a certain thing and can be zero, y is ordinal because the congestion can be ranked.
+
+### Question 2:
+Option A: By following the definition of p-norm, it can be seen that the higher the p is, the closer it gets to 7. When p equals infinity, it is defined as the maximum of the individual component differences, which in this case is max(7,2) = 7
+
+### Question 3:
+Option A: To obtain the total variance singular values (values inside matrix S), need to be squared and summed, the resulting number is 670.4047. The variance explained by the first four principal components is obtained by squaring and summing the first four rows of the matrix S. The result is 5811022. In percentages then, the first four PCs explain 581.1022/670.4047 = 86.6793147%.
+
+### Question 4:
+Option D: The PC 2 is the second column in the matrix S. Time of day is the first row, Broken Truck second row, Accident victim third and Defects fifth row of the matrix S. The coefficients of the attributes can now be read from the vector (PC 2). The low values have a negative coefficient while the high valued attributes have a positive coefficient which will result in an overall positive value projection onto PC 2.
+
+### Question 5:
+Option A: Since f11 = 2, f10 = 6, f01 = 5, Jaccard similarity can be calculated as f11/(f10+f01+f11) = 2 / 13 = 0.153846 (the amount of words that are the same in both sentances divided by the total number of distinct words in the sentances)
+
+### Question 6:
+Option B: Since p(x2=0|y=2)=p(x2=0,x7=0|y=2)+p(x2=0,x7=1|y=2)=0.81+0.03=0.84.
