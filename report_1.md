@@ -127,6 +127,12 @@ Shown are the empirical mean, empirical standard deviation, median, and value ra
 |Unemployment rate| 6.889 |5.015 |5.390 |28.090 |
 |Urban_population| 26180340.145 |81911516.515 |5648149.000 |842899682.000 |
 
+
+A good way to show the influence one attribute has on another i.e. their mutual relation is through calculating their covariance.
+Covariance is a measure of the strength and direction of the attributes' linear relationship. While useful, it is strongly affected by the scale of each attribute.
+By standardizing its value we get the correlation of the attributes that still tells us of the direction of the linear relationship.
+The following images (Image 2 and Image 3) show the covariance and correlation matrices of our dataset's attributes.
+
 ![covariance matrix of attributes](./images/covariance_matrix.png)
 ![correlation matrix of attributes](./images/correlation_matrix.png)
 
