@@ -137,13 +137,47 @@ The following images (Image 2 and Image 3) show the covariance and correlation m
 ![correlation matrix of attributes](./images/correlation_matrix.png)
 
 
-#### Data visualization 
+#### Data visualization
+
+In this section the attributes are presented, both individually and in comparison to each-other.
+Because of the great number of attributes in the dataset only a few interesting ones are visualized with histograms and box-plots.
+
+![histograms](./images/combined_histograms_picture.jpg)
+
+Two of the attributes, gasoline price and gross primary education have an approximately normal distribution. Fertility rate appears to be skewed to the right while life expectancy appears to be skewed to the left. Maybe the most interesting attribute is GDP, because of the large difference in values it appears almost as if it has an outlier, but in fact, all of the values are true.
+
+![box-plot](./images/box_plots_combined.png)
+
+The box-plot of GDP shows these "outliers" even better.
+(sad nesto valjda reci o primary education outlierim?)
+
+
+Again because of the great number of attributes, a few interesting correlations are featured in graphs 2., 3. and 4.
+They show the relations between strongly correlated chosen attributes. 
+
+![birthrate-maternalmortalitiy_relation](./images/attribute_comparisons/birthrate-maternalmortalitiy.png) 
+![lifeexpect-birthrate_relation](./images/attribute_comparisons/lifeexpect-birthrate.png) 
+![gdp-urbanpop_relation](./images/attribute_comparisons/gdp-urbanpop.png) 
+
+The first 2 graphs tell the story of the natality and lifespan in a country. Graph 1 displays a positive correlation between the Birth rate and Maternal mortality ratio of a place while Graph 2 points out the inverse proportionality of the Birth rate and Life expectancy. Another interesting relationship is found between the attributes GDP and Urban population that is found to be proportionate. The part that intrigues most is the possible interpretations of the quality of life in countries that can be gathered from these relations.
+
+
 In the following part of the section, the relationships with the Gross Tertiary Education Enrollment attribute and other attributes are highlighted.
 Since it's the attribute that the future regression models will try to predict, a visualization through scatter graphs of its relations could help in determining the feasibility of the task.
+
+![birth-rate_fertility-rate_tertiary_relation](./images/tertiary_comparison/birth-rate_fertility-rate_tertiary.png)
+![infant_maternal_tertiary_relation](./images/tertiary_comparison/infant_maternal_tertiary.png)
+![expect_phyisicany_tertiary_relation](./images/tertiary_comparison/expect_phyisicany_tertiary.png)
+![primary_urban_tertiary_relation](./images/tertiary_comparison/primary_urban_tertiary.png)
+![population_unemploy_tertiary_relation](./images/tertiary_comparison/population_unemploy_tertiary.png)
+![gdp_gasoline_tertiary_second_relation](./images/tertiary_comparison/gdp_gasoline_tertiary_second.png)
+![density_forest_tertiary_relation](./images/tertiary_comparison/density_forest_tertiary.png)
+![cpi_agriculc_tertiary_relation](./images/tertiary_comparison/cpi_agriculc_tertiary.png)
 
 On the graphs, an obvious and "steeply" inversely proportional relationship between the Gross Tertiary Education Enrollment attribute and the Birth rate, Fertility rate, Infant mortality and Maternal mortality attributes can be noticed. On the other hand, the Life expectancy and Physicians per thousand people data shows a proportional growth with Tertiary Education.
 
 Based on these graphs and the Correlation Matrix, Gross Tertiary Education Enrollment has a clear connection (correlation, but not necessarily linear) with a number of other attributes. Because of this, it should be possible to predict the value of Gross Tertiary Education Enrollment attribute with regression models.
+
 
 #### PCA
 
