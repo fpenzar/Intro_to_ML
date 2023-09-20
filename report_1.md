@@ -144,11 +144,16 @@ As can be seen in the figure below, first 8 Principal Components (PCs), explain 
 ![amount of variation explained](./images/pca_variance_explained.png)\
 The following figure visualizes the directions of the PCs.\
 ![component coefficient](./images/pca_component_coefficient.png)\
-For PC 1, `Birth Rate`, `Fertility Rate`, `Infant Mortality` and `Maternal Mortality` have a high negative coefficient associated with them, meaning a large positive value of those variables will result in a negative PC 1 result. This could be interpreted as a strong discrimination between countries based on natality. `Life Expectancy` and `Physicians per thousand` have high positive coefficients, meaning a discrimination based on healthcare. `Gross Tertiary Education`, `GDP` and `Gasoline Price` also have realtively high positive coefficients which could be explained as discrimination based on wealth.\
-PC 2 has high negative coefficients associated with `GDP`, `Population`, `Urban Population` and `Agricultural Land`. These attributes together discriminate based on the size of the country.
-PC 3 has high positive values for `Agricultural Land` and `Unemployment Rate`, and negative values for `Forested Area`, `Gasoline Price` and `Gross Primary Education`. PC 3 thus discriminates based on land usage and overall country development.
-Below is an image of the projection of data onto first 3 PCs.\
-![pca 3d](./images/pca_3d.png)\
-By just plotting the data onto the first 2 PCs the following graph is obtained:\
-![pca 2d](./images/pca_2d.png)\
-As can be seen from the two plots above, countries from the same continents are relatively concentrated. This means a classification model for determining the continent of the country should be feasible.
+For **PC 1**, `Birth Rate`, `Fertility Rate`, `Infant Mortality` and `Maternal Mortality` have a high negative coefficient associated with them, meaning a large positive value of those variables will result in a negative PC 1 result. This could be interpreted as a strong discrimination between countries based on natality. `Life Expectancy` and `Physicians per thousand` have high positive coefficients, meaning a discrimination based on healthcare. `Gross Tertiary Education`, `GDP` and `Gasoline Price` also have realtively high positive coefficients which could be explained as discrimination based on wealth.\
+**PC 2** has high negative coefficients associated with `GDP`, `Population`, `Urban Population` and `Agricultural Land`. These attributes together discriminate based on the size of the country.\
+**PC 3** has high positive values for `Agricultural Land` and `Unemployment Rate`, and negative values for `Forested Area`, `Gasoline Price` and `Gross Primary Education`. PC 3 thus discriminates based on land usage and overall country development.\
+<br/>
+The first three principal components explain around 60% of the data variation.
+By plotting the data onto the first 2 PCs the following graph is obtained:\
+![pca 1 2d](./images/pca_1_2.png)\
+When plotting data onto the first and third PC the following graph is obtained:\
+![pca 1 3d](./images/pca_1_3.png)\
+By plotting data onto the second and third PC the following graph is obtained:\
+![pca 2 3d](./images/pca_2_3.png)\
+As can be seen from the data plotted onto first and second PC, and data plotted onto first and third PC, countries from the same continents are relatively localized. This means a classification model for determining the continent of the country should be feasible.\
+When plotting the data onto second and third PC the clear distinction between data points is hard to spot. An explanation of this is that combined, second and third PC only address around 23% of variation of the data.
