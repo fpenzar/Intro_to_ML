@@ -102,6 +102,11 @@ Countries that contained null values within the remaining attributes were remove
 
 #### Basic summary statistics of the attributes
 
+This subsection of the report focuses on the more elementary properties and definitions of the dataset that summarize attributes of the dataset and give way for future observation comparisons.
+
+The attribute statistics are laid out in table form below (Table 2.). 
+Shown are the empirical mean, empirical standard deviation, median, and value range of every used attribute of the dataset.
+
 |Attribute | empirical mean | empirical std deviation | median | range |
 |:--- | :---: | :---: | :---: | :---: |
 |Density (P/Km2)| 214.333 |709.831 |83.000 |8356.000 |
