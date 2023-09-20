@@ -215,7 +215,7 @@ Option A: To obtain the total variance singular values (values inside matrix S),
 Option D: The PC 2 is the second column in the matrix S. Time of day is the first row, Broken Truck second row, Accident victim third and Defects fifth row of the matrix S. The coefficients of the attributes can now be read from the vector (PC 2). The low values have a negative coefficient while the high valued attributes have a positive coefficient which will result in an overall positive value projection onto PC 2.
 
 ### Question 5:
-Option A: Since f11 = 2, f10 = 6, f01 = 5, Jaccard similarity can be calculated as f11/(f10+f01+f11+) = 2 / 13 = 0.153846
+Option A: Since f11 = 2, f10 = 6, f01 = 5, Jaccard similarity can be calculated as f11/(f10+f01+f11) = 2 / 13 = 0.153846 (the amount of words that are the same in both sentances divided by the total number of distinct words in the sentances)
 
 ### Question 6:
 Option B: Since p(x2=0|y=2)=p(x2=0,x7=0|y=2)+p(x2=0,x7=1|y=2)=0.81+0.03=0.84.
