@@ -139,9 +139,11 @@ The following images (Image 2 and Image 3) show the covariance and correlation m
 
 #### Data visualization 
 In the following part of the section, the relationships with the Gross Tertiary Education Enrollment attribute and other attributes are highlighted.
-Since it's the attribute that our future regression models will try to predict, a visualization through scatter graphs of its relations could help us in determining the feasibility of the task.
+Since it's the attribute that the future regression models will try to predict, a visualization through scatter graphs of its relations could help in determining the feasibility of the task.
 
-On the graphs, an obvious and "steeply" inversely proportional relationship between the Gross Tertiary Education Enrollment attribute and the Birth rate, Fertility rate, Infant mortality and Maternal mortality attributes can be noticed. On the other hand, the Life expectancy and Physicians per thousand people data shows a proportional growth with Tertiary Education. 
+On the graphs, an obvious and "steeply" inversely proportional relationship between the Gross Tertiary Education Enrollment attribute and the Birth rate, Fertility rate, Infant mortality and Maternal mortality attributes can be noticed. On the other hand, the Life expectancy and Physicians per thousand people data shows a proportional growth with Tertiary Education.
+
+Based on these graphs and the Correlation Matrix, Gross Tertiary Education Enrollment has a clear connection (correlation, but not necessarily linear) with a number of other attributes. Because of this, it should be possible to predict the value of Gross Tertiary Education Enrollment attribute with regression models.
 
 #### PCA
 
