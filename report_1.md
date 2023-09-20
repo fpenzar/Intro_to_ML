@@ -151,7 +151,14 @@ The first 2 graphs tell the story of the natality and lifespan in a country. Gra
 
 In the following part of the section, the relationships with the Gross Tertiary Education Enrollment attribute and other attributes are highlighted.
 Since it's the attribute that our future regression models will try to predict, a visualization through scatter graphs of its relations could help us in determining the feasibility of the task.
-
+![birth-rate_fertility-rate_tertiary_relation](./images/tertiary_comparison/birth-rate_fertility-rate_tertiary.png)
+![infant_maternal_tertiary_relation](./images/tertiary_comparison/infant_maternal_tertiary.png)
+![expect_phyisicany_tertiary_relation](./images/tertiary_comparison/expect_phyisicany_tertiary.png)
+![primary_urban_tertiary_relation](./images/tertiary_comparison/primary_urban_tertiary.png)
+![population_unemploy_tertiary_relation](./images/tertiary_comparison/population_unemploy_tertiary.png)
+![gdp_gasoline_tertiary_second_relation](./images/tertiary_comparison/gdp_gasoline_tertiary_second.png)
+![density_forest_tertiary_relation](./images/tertiary_comparison/density_forest_tertiary.png)
+![cpi_agriculc_tertiary_relation](./images/tertiary_comparison/cpi_agriculc_tertiary.png)
 On the graphs, an obvious and "steeply" inversely proportional relationship between the Gross Tertiary Education Enrollment attribute and the Birth rate, Fertility rate, Infant mortality and Maternal mortality attributes can be noticed. On the other hand, the Life expectancy and Physicians per thousand people data shows a proportional growth with Tertiary Education. 
 
 #### PCA
