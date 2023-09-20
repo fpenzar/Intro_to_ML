@@ -141,6 +141,8 @@ The following images (Image 2 and Image 3) show the covariance and correlation m
 In the following part of the section, the relationships with the Gross Tertiary Education Enrollment attribute and other attributes are highlighted.
 Since it's the attribute that our future regression models will try to predict, a visualization through scatter graphs of its relations could help us in determining the feasibility of the task.
 
+On the graphs, an obvious and "steeply" inversely proportional relationship between the Gross Tertiary Education Enrollment attribute and the Birth rate, Fertility rate, Infant mortality and Maternal mortality attributes can be noticed. On the other hand, the Life expectancy and Physicians per thousand people data shows a proportional growth with Tertiary Education. 
+
 #### PCA
 
 Since the attributes had different scales, standardization was applied on all of them. Using the [scipy function svd](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.svd.html), svd was done on the dataset which enabled for a principal component analysis.\
