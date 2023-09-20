@@ -138,6 +138,13 @@ The following images (Image 2 and Image 3) show the covariance and correlation m
 
 
 #### Data visualization 
+
+Again because of the great number of attributes, a few interesting correlations are featured in graphs 2., 3. and 4.
+They show the relations between strongly correlated chosen attributes. 
+
+The first 2 graphs tell the story of the natality and lifespan in a country. Graph 1 displays a positive correlation between the Birth rate and Maternal mortality ratio of a place while Graph 2 points out the inverse proportionality of the Birth rate and Life expectancy. Another interesting relationship is found between the attributes GDP and Urban population that is found to be proportionate. The part that intrigues most is the possible interpretations of the quality of life in countries that can be gathered from these relations.
+
+
 In the following part of the section, the relationships with the Gross Tertiary Education Enrollment attribute and other attributes are highlighted.
 Since it's the attribute that our future regression models will try to predict, a visualization through scatter graphs of its relations could help us in determining the feasibility of the task.
 
