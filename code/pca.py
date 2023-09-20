@@ -41,57 +41,57 @@ plt.ylabel('PC{0}'.format(j+1))
 # Output result to screen
 plt.show()
 
-# threshold = 0.9
-# # plot cumulative variance explained
-# plt.plot(range(1,len(rho)+1),rho,'x-')
-# plt.plot(range(1,len(rho)+1),np.cumsum(rho),'o-')
-# plt.plot([1,len(rho)],[threshold, threshold],'k--')
-# plt.title('Variance explained by principal components')
-# plt.xlabel('Principal component')
-# plt.ylabel('Variance explained')
-# plt.legend(['Individual','Cumulative','Threshold'])
-# plt.grid()
-# plt.title('Variance explained')
-# plt.show()
+threshold = 0.9
+# plot cumulative variance explained
+plt.plot(range(1,len(rho)+1),rho,'x-')
+plt.plot(range(1,len(rho)+1),np.cumsum(rho),'o-')
+plt.plot([1,len(rho)],[threshold, threshold],'k--')
+plt.title('Variance explained by principal components')
+plt.xlabel('Principal component')
+plt.ylabel('Variance explained')
+plt.legend(['Individual','Cumulative','Threshold'])
+plt.grid()
+plt.title('Variance explained')
+plt.show()
 
-# # percent of the variance. Let's look at their coefficients:
-# pcs = [i for i in range(8)]
-# legendStrs = ['PC'+str(e+1) for e in pcs]
-# bw = .1
-# r = np.arange(2,M - cols_to_discard + 1)
+# percent of the variance. Let's look at their coefficients:
+pcs = [i for i in range(8)]
+legendStrs = ['PC'+str(e+1) for e in pcs]
+bw = .1
+r = np.arange(2,M - cols_to_discard + 1)
 
-# fig, ax = plt.subplots()
-# for i in pcs:
-#     ax.bar(r+i*bw - 4*bw, V[:,i], width=bw)
-# ax.set_xticks(r+bw) 
-# ax.set_xticklabels(attribute_names[1:N-cols_to_discard],rotation=270)
-# ax.set_xlabel('Attributes')
-# ax.set_ylabel('Component coefficients')
-# ax.legend(legendStrs, loc='upper left', bbox_to_anchor=(1, 1))
-# ax.grid()
-# plt.title('PCA Component Coefficients')
-# plt.show()
-
-
-# # Create a figure and a 3D axis
-# fig = plt.figure()
-# ax = fig.add_subplot(111, projection='3d')
-
-# # Create a 3D scatter plot
-# for c in range(C):
-#     # select indices belonging to class c:
-#     class_mask = y==c
-#     ax.scatter(Z[class_mask,0], Z[class_mask,1], Z[class_mask,2], marker='o', alpha=.5)
-
-# # Set labels for the axes
-# ax.set_xlabel('PC 1')
-# ax.set_ylabel('PC 2')
-# ax.set_zlabel('PC 3')
-# ax.legend(class_names, loc='upper left', bbox_to_anchor=(-0.2, 1))
+fig, ax = plt.subplots()
+for i in pcs:
+    ax.bar(r+i*bw - 4*bw, V[:,i], width=bw)
+ax.set_xticks(r+bw) 
+ax.set_xticklabels(attribute_names[1:N-cols_to_discard],rotation=270)
+ax.set_xlabel('Attributes')
+ax.set_ylabel('Component coefficients')
+ax.legend(legendStrs, loc='upper left', bbox_to_anchor=(1, 1))
+ax.grid()
+plt.title('PCA Component Coefficients')
+plt.show()
 
 
-# # Set the title
-# ax.set_title('Projection of data on first 3 PCs')
+# Create a figure and a 3D axis
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
 
-# # Show the plot
-# plt.show()
+# Create a 3D scatter plot
+for c in range(C):
+    # select indices belonging to class c:
+    class_mask = y==c
+    ax.scatter(Z[class_mask,0], Z[class_mask,1], Z[class_mask,2], marker='o', alpha=.5)
+
+# Set labels for the axes
+ax.set_xlabel('PC 1')
+ax.set_ylabel('PC 2')
+ax.set_zlabel('PC 3')
+ax.legend(class_names, loc='upper left', bbox_to_anchor=(-0.2, 1))
+
+
+# Set the title
+ax.set_title('Projection of data on first 3 PCs')
+
+# Show the plot
+plt.show()
