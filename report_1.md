@@ -137,7 +137,18 @@ The following images (Image 2 and Image 3) show the covariance and correlation m
 ![correlation matrix of attributes](./images/correlation_matrix.png)
 
 
-#### Data visualization 
+#### Data visualization
+
+In this section we will present the attributes, both individually and in comparison to each-other.
+Because of the great number of attributes in the dataset only a few interesting ones are visualized with histograms and box-plots.
+
+![histograms](./images/combined_histograms_picture.jpg)
+Two of the attributes, gasoline price and gross primary education have an approximately normal distribution. Fertility rate appears to be skewed to the right while life expectancy appears to be skewed to the left. Maybe the most interesting attribute is GDP, because of the large difference in values it appears almost as if it has an outlier, but in fact, all of the values are true.
+
+![box-plot](./images/box_plots_combined.png)
+The box-plot of GDP shows these "outliers" even better.
+(sad nesto valjda reci o primary education outlierim?)
+
 
 Again because of the great number of attributes, a few interesting correlations are featured in graphs 2., 3. and 4.
 They show the relations between strongly correlated chosen attributes. 
