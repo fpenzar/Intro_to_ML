@@ -148,7 +148,7 @@ Two of the attributes, gasoline price and gross primary education have an approx
 
 ![box-plot](./images/box_plots_combined.png)
 
-Coutries like the U.S., China, Japan, Germany, U.K., France, India, South Korea, Italy..., have extremly large values of GDP (many of them are members of G8) and subsequently look like outliers in the box-plot. They are not outliers, but rather valuable data points and because of this they are left in the dataset. 
+Coutries like the U.S., China, Japan, Germany, U.K., France, India, South Korea, Italy..., have extremly large values of GDP (many of them are members of G8) and subsequently look like outliers in the box-plot. They are not outliers, but rather valuable data points and because of this they are left in the dataset. In the box plot for gross primary education most of the data is concentrated around the 100\% value. However there are quite a few countries that have the value over 115\% (meaning a lot of people repeat grades in primary education) and under 90\% (meaning a lot of people drop out of primary education) because these values are uncommon they can be seen as outliers on the box plot but are still left in the dataset.  
 
 Again because of the great number of attributes, a few interesting correlations are featured in graphs 2., 3. and 4.
 They show the relations between strongly correlated chosen attributes. 
