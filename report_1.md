@@ -7,8 +7,7 @@ Group 127
 
 ## Description of the Dataset
 
-This dataset contains a wide range of information about countries worldwide.
-It covers every country globally and its attributes serve as basic categories describing each country. Categories include demographic statistics, healthcare metrics, economic indicators, education statistics, environmental data, and others. The global-wide inclusion of all countries allows for a wide perspective that can be used for in-depth analyses and cross-country comparisons.
+This dataset contains a wide range of information about countries worldwide. Each country is treated as a separate observation, a data point with a number of attributes. Attributes include demographic statistics, healthcare metrics, economic indicators, education statistics, environmental data, and others. The global-wide inclusion of all countries allows for a wide perspective that can be used for in-depth analyses and cross-country comparisons.
 
 The dataset can be obtained at [kaggle](https://www.kaggle.com/datasets/nelgiriyewithana/countries-of-the-world-2023).
 
@@ -198,6 +197,17 @@ By plotting data onto the second and third PC the following graph is obtained:\
 ![pca 2 3d](./images/pca/pca_2_3.png)\
 As can be seen from the data plotted onto first and second PC, and data plotted onto first and third PC, countries from the same continents are relatively localized. This means a classification model for determining the continent of the country should be feasible.\
 When plotting the data onto second and third PC the clear distinction between data points is hard to spot. An explanation of this is that combined, second and third PC only address around 23% of variation of the data.
+
+
+## Summary and Plans for the Future
+
+In conclusion, this report provides an overview of a dataset containing information about countries worldwide. The data had to be transformed in several ways - removing the null values, removing the unnecessary attributes and adding an extra attribute describing the continent the country is on. These preprocessing steps were necessary to ensure the quality and usability of the data for future machine learning tasks.
+
+The primary machine learning tasks will include a regression model for predicting the value of the Gross Tertiary Education attribute and a classification model for the prediction of the continent of a corresponding country.
+
+Some of the attributes, GDP for example, had a wide value range with some potential outliers. These data points were left in the dataset due to the nature of those attributes - a wide gap between a couple of the wealthiest countries and the rest of the world. Various data attribute relations were examined. The correlation matrix gave a clear overview of some of the most prominent attribute relations. Furthermore, Gross Tertiary Education attribute relationship to other attributes was featured. A strong correlation with Birth rate, Fertility rate, Infant mortality and Maternal mortality was noticed. Principal Component Analysis was also done on the data. It revealed that a significant proportion of the data variation could be explained by the first few PCs.
+
+Based on data visualization, analysis of attribute relations and PCA, machine learning aims seem possible. Continents can be separated by just plotting the data onto the first two PCs, and a clear relation between Gross Tertiary Education with other attributes suggests the feasibility of a classification and a regression model respectively.
 
 
 ## Exam Problems
