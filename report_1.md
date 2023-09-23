@@ -180,9 +180,9 @@ Based on these graphs and the Correlation Matrix, Gross Tertiary Education Enrol
 
 Since the attributes had different scales, standardization was applied on all of them. Using the [scipy function svd](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.svd.html), svd was done on the dataset which enabled for a principal component analysis.\
 As can be seen in the figure below, first 8 Principal Components (PCs), explain more than 90% of data variation. First PC explains roughly 35%, second PC explains 15% and third 8%. \
-![amount of variation explained](./images/pca/pca_variance_explained.png)\
+![amount of variation explained](./images/pca_new/variance_explanation.png)\
 The following figure visualizes the directions of the PCs.\
-![component coefficient](./images/pca/pca_component_coefficient.png)\
+![component coefficient](./images/pca_new/component_analysis.png)\
 For **PC 1**, `Birth Rate`, `Fertility Rate`, `Infant Mortality` and `Maternal Mortality` have a high negative coefficient associated with them, meaning a large positive value of those variables will result in a negative PC 1 result. This could be interpreted as a strong discrimination between countries based on natality. `Life Expectancy` and `Physicians per thousand` have high positive coefficients, meaning a discrimination based on healthcare. `Gross Tertiary Education`, `GDP` and `Gasoline Price` also have realtively high positive coefficients which could be explained as discrimination based on wealth.\
 **PC 2** has high negative coefficients associated with `GDP`, `Population`, `Urban Population` and `Agricultural Land`. These attributes together discriminate based on the size of the country.\
 **PC 3** has high positive values for `Agricultural Land` and `Unemployment Rate`, and negative values for `Forested Area`, `Gasoline Price` and `Gross Primary Education`. PC 3 thus discriminates based on land usage and overall country development.\
@@ -190,13 +190,18 @@ For **PC 1**, `Birth Rate`, `Fertility Rate`, `Infant Mortality` and `Maternal M
 
 The first three principal components explain around 60% of the data variation.
 By plotting the data onto the first 2 PCs the following graph is obtained:\
-![pca 1 2d](./images/pca/pca_1_2.png)\
+![pca 1 2d](./images/pca_new/pc1-pc2.png)\
 When plotting data onto the first and third PC the following graph is obtained:\
-![pca 1 3d](./images/pca/pca_1_3.png)\
+![pca 1 3d](./images/pca_new/pc1-pc3.png)\
 By plotting data onto the second and third PC the following graph is obtained:\
-![pca 2 3d](./images/pca/pca_2_3.png)\
+![pca 2 3d](./images/pca_new/pc2-pc3.png)\
 As can be seen from the data plotted onto first and second PC, and data plotted onto first and third PC, countries from the same continents are relatively localized. This means a classification model for determining the continent of the country should be feasible.\
 When plotting the data onto second and third PC the clear distinction between data points is hard to spot. An explanation of this is that combined, second and third PC only address around 23% of variation of the data.
+
+##### Attribute Comparisons - in regards to continents
+One of the project goals will be classifying the countries by continent, the following figures show the distribution of attributes in different continents. For this continent comparison, chosen were the attributes of the coefficient with the greatest absolute value associated with PC 1. Since the first principle component is the component best aligned to the data and is one of the two components used for dimension reduction, it is interesting to see how the attributes that influence it most are in similar relation when visualized grouped by continents. It also leads to believe classification will be possible.
+![Birth rate fertility rate continents](./images/box_plot_by_continent_first.png)        
+![Infant mortality maternal mortality continents](./images/box_plot_by_continent_second.png)
 
 
 ## Summary and Plans for the Future
