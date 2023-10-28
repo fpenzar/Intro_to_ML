@@ -16,6 +16,14 @@ Y = X - np.ones((N, 1))*X.mean(0)
 Y = Y*(1/np.std(Y,0))
 X = Y
 
+tertiary_enrollment_idx = 9 #attribute_names.index('Gross tertiary education(%)')
+y = X[:,tertiary_enrollment_idx]
+
+X_cols = list([2,3,4,7,11,12,13])
+# X_cols = list(range(0,tertiary_enrollment_idx)) + list(range(tertiary_enrollment_idx+1,len(attribute_names) - 6))
+X = X[:,X_cols]
+
+
 # Add offset attribute
 X = np.concatenate((np.ones((X.shape[0],1)),X),1)
 attribute_names = [u'Offset']+attribute_names[1:]
@@ -23,7 +31,7 @@ M = M+1
 
 
 # Values of lambda
-lambdas = np.power(10.,range(-5,9))
+lambdas = np.power(10.,range(-3,6))
 
 
 internal_cross_validation = 10    

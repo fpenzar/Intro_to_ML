@@ -15,7 +15,7 @@ X = Y
 tertiary_enrollment_idx = 9 #attribute_names.index('Gross tertiary education(%)')
 y = X[:,tertiary_enrollment_idx]
 
-X_cols = list(range(0,tertiary_enrollment_idx)) + list(range(tertiary_enrollment_idx+1,len(attribute_names) - 6))
+X_cols = list(range(0,tertiary_enrollment_idx)) + list(range(tertiary_enrollment_idx+1,len(attribute_names) - 1))
 X = X[:,X_cols]
 
 # Fit ordinary least squares regression model

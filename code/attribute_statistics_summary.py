@@ -32,6 +32,7 @@ for i in range (M):
         x = X[:,i]
         x= x.astype(float)
         mean_x = x.mean()
+
         std_x = x.std(ddof=1)
         median_x = np.median(x)
         range_x = x.max()-x.min()

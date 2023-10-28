@@ -1,0 +1,12 @@
+Linear regression without feature selection:
+
+- Training error: 0.25693599791371385
+- Test error:     0.508309480038856
+- R^2 train:     0.7425900346026523
+- R^2 test:     0.4760859932064762
+Linear regression with feature selection:
+
+- Training error: 0.287084920416972
+- Test error:     0.3286467381585051
+- R^2 train:     0.7123854966580033
+- R^2 test:     0.6612641782815412

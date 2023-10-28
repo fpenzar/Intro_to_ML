@@ -15,10 +15,20 @@ Y = Y*(1/np.std(Y,0))
 X = Y
 attribute_names = attribute_names[1:]
 
+tertiary_enrollment_idx = 9 #attribute_names.index('Gross tertiary education(%)')
+y = X[:,tertiary_enrollment_idx]
+
+X_cols = list(range(0,tertiary_enrollment_idx)) + list(range(tertiary_enrollment_idx+1,len(attribute_names) - 6))
+X = X[:,X_cols]
+
+attribute_names = attribute_names[X_cols]
+
 ## Crossvalidation
 # Create crossvalidation partition for evaluation
 K = 5
 CV = model_selection.KFold(n_splits=K,shuffle=True)
+
+N, M = X.shape
 
 # Initialize variables
 Features = np.zeros((M,K))
