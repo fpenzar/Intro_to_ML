@@ -25,7 +25,7 @@ N, M = X.shape
 
 ## Crossvalidation
 # Create crossvalidation partition for evaluation
-K = 5
+K = 3
 CV = model_selection.KFold(n_splits=K,shuffle=True)
 
 # Initialize variables
@@ -49,7 +49,7 @@ error_test_regression = np.empty((K,1))
 lambdas = np.power(10.,range(-3,6))
 
 #definition of neural network
-n_hidden_units = [1, 2, 5, 7, 10]
+n_hidden_units = [1, 2, 5]
 loss_fn = torch.nn.MSELoss() 
 
 print("-------------------------------------------")
@@ -63,7 +63,7 @@ for train_index, test_index in CV.split(X):
     y_train = y[train_index]
     X_test = X[test_index,:]
     y_test = y[test_index]
-    internal_cross_validation = 5
+    internal_cross_validation = 3
 
     #inner loop 
     
@@ -79,9 +79,13 @@ for train_index, test_index in CV.split(X):
         
         # extract training and test set for current CV fold
         X_train_inner = torch.Tensor(X[train_index_inner,:])
-        y_train_inner = torch.Tensor(y[train_index_inner])
+        y_train_inner = y[train_index_inner]
+        y_train_inner.resize(len(train_index_inner), 1)
+        y_train_inner = torch.Tensor(y_train_inner)
         X_test_inner = torch.Tensor(X[test_index_inner,:])
-        y_test_inner = torch.Tensor(y[test_index_inner])
+        y_test_inner = y[test_index_inner]
+        y_test_inner.resize(len(test_index_inner), 1)
+        y_test_inner = torch.Tensor(y_test_inner)
         
         for n in n_hidden_units:
             model = lambda: torch.nn.Sequential(
@@ -114,11 +118,17 @@ for train_index, test_index in CV.split(X):
     
     # Neural network error
     X_train_tensor = torch.Tensor(X_train)
+    y_train.resize(X_train.shape[0], 1)
+    y_train_tensor = torch.Tensor(y_train)
     y_train_est = best_net(X_train_tensor)
-    se = (y_train_est.float()-torch.Tensor(y_train).float())**2 # squared error
+    se = (y_train_est.float()-y_train_tensor.float())**2 # squared error
     mse = (sum(se).type(torch.float)/len(torch.Tensor(y_train))).data.numpy() #mean
     error_train_NN[k] = mse
     
+    
+    X_test_tensor = torch.Tensor(X_test)
+    y_test.resize(X_test.shape[0], 1)
+    y_test_tensor = torch.Tensor(y_test)
     y_test_est = best_net(torch.Tensor(X_test))
     se = (y_test_est.float()-torch.Tensor(y_test).float())**2 # squared error
     mse = (sum(se).type(torch.float)/len(torch.Tensor(y_test))).data.numpy() #mean
