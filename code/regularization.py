@@ -40,7 +40,8 @@ X_train = X
 y_train = y
 
 opt_val_err, opt_lambda, mean_w_vs_lambda, train_err_vs_lambda, test_err_vs_lambda = rlr_validate(X_train, y_train, lambdas, internal_cross_validation)
-
+print('Weights of best lambda regression:')
+print(mean_w_vs_lambda[:,np.where(lambdas == opt_lambda)[0]])
 
 figure(10, figsize=(12,8))
 subplot(1,2,1)
