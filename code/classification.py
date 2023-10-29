@@ -20,7 +20,7 @@ X = Y
 
 # X_cols = list([2,3,4,7,11,12,13])
 #X_cols = [2,3,4,7,11,12,13]
-X_cols = list(range(0,len(attribute_names) - 6))
+X_cols = list(range(0,len(attribute_names) - 7))
 X = X[:,X_cols]
 N, M = X.shape
 # END DATA PREPROCESSING
@@ -35,13 +35,17 @@ w_rlr = np.empty((M,K))
 
 error_train_baseline = np.empty((K,1))
 error_test_baseline = np.empty((K,1))
+baseline_yhats = list()
 
 error_train_KNN = np.empty((K,1))
 error_test_KNN = np.empty((K,1))
+knn_yhats = list()
 
 error_train_logistic = np.empty((K,1))
 error_test_logistic = np.empty((K,1))
+logistic_yhats = list()
 
+true_ys = list()
 
 #defintion of regularization logistic model
 lambdas = np.power(10.,range(-3,6))
@@ -52,6 +56,9 @@ no_of_different_neighbours = [1,2,3,4,5,6,7,8,9]
 #### !!! there needs to be the same no of lambdas and no_of_different_neighbours !!!!
 print("-------------------------------------------")
 print('Outer fold    KNN      Logistic regression   baseline')
+
+best_mdl = None
+best_log_mdl_error = 10000
 
 k=0
 for train_index, test_index in CV.split(X):
@@ -69,9 +76,9 @@ for train_index, test_index in CV.split(X):
     # Find the value with the most repetitions
     unique_values, counts = np.unique(y_train, return_counts=True)
     most_common_value = unique_values[np.argmax(counts)]
-    print("most common continent", most_common_value)
-    print("Count:", np.max(counts))
-    print("y_test", y_test)
+    #print("most common continent", most_common_value)
+    #print("Count:", np.max(counts))
+    #print("y_test", y_test)
     #inner loop 
     
     #inner fold for regularization
@@ -131,15 +138,24 @@ for train_index, test_index in CV.split(X):
                                    tol=1e-4, random_state=1, 
                                    penalty='l2', C=1/best_lambda, max_iter=5000)
     mdl.fit(X_train_logistic,y_train)
-    y_test_est = mdl.predict(X_test_logistic)
-    error_test_logistic[k] = np.sum(y_test_est!=y_test) / len(y_test)
+    y_est_logistic = mdl.predict(X_test_logistic)
+    error_test_logistic[k] = np.sum(y_est_logistic!=y_test) / len(y_test)
+    
+    #find best log. regression model
+    if error_test_logistic[k] < best_log_mdl_error :
+        best_log_mdl_error = error_test_logistic[k]
+        best_mdl = mdl
 
     # KNN error rate
     knclassifier = KNeighborsClassifier(n_neighbors=best_k);
     knclassifier.fit(X_train, y_train);
-    y_est = knclassifier.predict(X_test);
-    error_test_KNN[k] = np.sum(y_est!=y_test)/len(y_test)
+    y_est_knn = knclassifier.predict(X_test);
+    error_test_KNN[k] = np.sum(y_est_knn!=y_test)/len(y_test)
     
+    true_ys.append(list(y_test))
+    baseline_yhats.append(list(y_est_baseline))
+    knn_yhats.append(list(y_est_knn))
+    logistic_yhats.append(list(y_est_logistic))
         
     
     print('fold: ' + str(k+1))
@@ -150,5 +166,16 @@ for train_index, test_index in CV.split(X):
     print("Baseline: ")
     print("error rate: "+str(error_test_baseline[k]))
 
+
     k+=1
+    
+print("true ys", true_ys)
+print("baseline yhats", baseline_yhats)
+print("knn yhatss", knn_yhats)
+print("logistic yhats", logistic_yhats)
+
+#Best lambda logistic model print
+print("Coefficients:", best_mdl.coef_)
+print("Intercept:", best_mdl.intercept_)
+
     
