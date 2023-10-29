@@ -159,7 +159,8 @@ def rlr_validate(X,y,lambdas,cvf=10):
     test_error = np.empty((cvf,len(lambdas)))
     f = 0
     y = y.squeeze()
-    for train_index, test_index in CV.split(X,y):
+    CV_indexes = list(CV.split(X,y))
+    for train_index, test_index in CV_indexes:
         X_train = X[train_index]
         y_train = y[train_index]
         X_test = X[test_index]
@@ -193,7 +194,7 @@ def rlr_validate(X,y,lambdas,cvf=10):
     test_err_vs_lambda = np.mean(test_error,axis=0)
     mean_w_vs_lambda = np.squeeze(np.mean(w,axis=1))
     
-    return opt_val_err, opt_lambda, mean_w_vs_lambda, train_err_vs_lambda, test_err_vs_lambda
+    return opt_val_err, opt_lambda, mean_w_vs_lambda, train_err_vs_lambda, test_err_vs_lambda, CV_indexes
         
 def dbplotf(X,y,fun,grid_range,resolution=100.0) :     
     # smoothness of color-coding:

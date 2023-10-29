@@ -46,9 +46,11 @@ error_test_baseline = np.empty((K,1))
 
 error_train_NN = np.empty((K,1))
 error_test_NN = np.empty((K,1))
+h = np.empty((K,1))
 
 error_train_regression = np.empty((K,1))
 error_test_regression = np.empty((K,1))
+lambdas_optimal = np.empty((K,1))
 
 
 #defintion of regularization linear model
@@ -69,12 +71,11 @@ for train_index, test_index in CV.split(X):
     y_train = y[train_index]
     X_test = X[test_index,:]
     y_test = y[test_index]
-    internal_cross_validation = 10
 
     #inner loop 
-    
+    X_train_lr = np.concatenate((np.ones((X_train.shape[0], 1)), X_train), 1)
     #inner fold for regularization
-    opt_val_err, opt_lambda, mean_w_vs_lambda, train_err_vs_lambda, test_err_vs_lambda = rlr_validate(X_train, y_train, lambdas, internal_cross_validation)
+    opt_val_err, opt_lambda, mean_w_vs_lambda, train_err_vs_lambda, test_err_vs_lambda, CV_indexes = rlr_validate(X_train_lr, y_train, lambdas, K)
     
     #inner fold for neural network 
     best_final_loss = 10000 #anything large
@@ -82,17 +83,17 @@ for train_index, test_index in CV.split(X):
     best_learning_curve = None
     best_n = 0
     j = 0
-    for train_index_inner, test_index_inner in CV.split(X_train):
+    for train_index_inner, test_index_inner in CV_indexes:
         print(f"ANN inner fold: {j+1}")
         j += 1
         # if j == 3: break
         # extract training and test set for current CV fold
-        X_train_inner = torch.Tensor(X[train_index_inner,:])
-        y_train_inner = y[train_index_inner]
+        X_train_inner = torch.Tensor(X_train[train_index_inner,:])
+        y_train_inner = y_train[train_index_inner]
         y_train_inner.resize(len(train_index_inner), 1)
         y_train_inner = torch.Tensor(y_train_inner)
-        X_test_inner = torch.Tensor(X[test_index_inner,:])
-        y_test_inner = y[test_index_inner]
+        X_test_inner = torch.Tensor(X_train[test_index_inner,:])
+        y_test_inner = y_train[test_index_inner]
         y_test_inner.resize(len(test_index_inner), 1)
         y_test_inner = torch.Tensor(y_test_inner)
         
@@ -133,6 +134,7 @@ for train_index, test_index in CV.split(X):
     # Compute mean squared error with regularization with optimal lambda
     error_train_baseline[k] = np.square(y_train-X_train @ w_rlr[:,k]).sum()/y_train.shape[0]
     error_test_regression[k] = np.square(y_test-X_test @ w_rlr[:,k]).sum()/y_test.shape[0]
+    lambdas_optimal[k] = opt_lambda
 
     # Neural network error
     X_train_tensor = torch.Tensor(X_train)
@@ -142,6 +144,7 @@ for train_index, test_index in CV.split(X):
     se = (y_train_est.float()-y_train_tensor.float())**2 # squared error
     mse = (sum(se).type(torch.float)/len(torch.Tensor(y_train))).data.numpy() #mean
     error_train_NN[k] = mse
+    h[k] = best_n
     
     
     X_test_tensor = torch.Tensor(X_test)
@@ -161,7 +164,14 @@ for train_index, test_index in CV.split(X):
     print("mse: "+str(error_test_baseline[k]))
 
     k+=1
-    
+
+
+print("#################################")
+print(f"h: {list(h.squeeze())}")
+print(f"E_ANN: {list(error_test_NN.squeeze())}")
+print(f"lambda: {list(lambdas_optimal.squeeze())}")
+print(f"E_LR: {list(error_test_regression.squeeze())}")
+print(f"E_baseline: {list(error_test_baseline.squeeze())}")
 
 # Display results
 '''print('\n')
