@@ -55,7 +55,7 @@ error_test_regression = np.empty((K,1))
 lambdas = np.power(10.,range(-3,6))
 
 #definition of neural network
-n_hidden_units = [1, 5, 10, 20]
+n_hidden_units = [1, 10, 20]
 loss_fn = torch.nn.MSELoss() 
 
 print("-------------------------------------------")
@@ -107,8 +107,8 @@ for train_index, test_index in CV.split(X):
                                                                loss_fn,
                                                                X=X_train_inner,
                                                                y=y_train_inner,
-                                                               n_replicates=1,
-                                                               max_iter=10000)
+                                                               n_replicates=3,
+                                                               max_iter=2000)
             if final_loss < best_final_loss:
                 best_net = net
                 best_learning_curve = learning_curve
@@ -154,7 +154,7 @@ for train_index, test_index in CV.split(X):
     
     print('fold: ' + str(k+1))
     print('Neural network:')
-    print('best n: '+ str(best_n)+" mse: "+str(error_test_NN[k]))
+    print('best n: '+ str(best_n)+" mse: "+str(error_test_NN[k]) + f"  train lost: {best_final_loss}")
     print("Linear regression: ")
     print("best lambda: "+ str(opt_lambda)+" mse: "+str(error_test_regression[k]))
     print("Baseline: ")
