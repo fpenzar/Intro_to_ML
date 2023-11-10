@@ -15,7 +15,7 @@ def get_continent(country_name):
         return "Country not found"
 
 # Load the dataset using the Pandas library
-filename = '../data/dataset.csv'
+filename = './data/dataset.csv'
 df = pd.read_csv(filename)
 
 # Pandas returns a dataframe, (df) which could be used for handling the data.
